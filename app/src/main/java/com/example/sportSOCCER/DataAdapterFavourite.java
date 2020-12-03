@@ -56,12 +56,12 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
 
     @Override
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
-        holder.txtNama.setText(dataList.get(position).getJudul());
-        holder.txtNpm.setText(dataList.get(position).getReleaseDate());
-        Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getPath());
+        holder.txtNama.setText(dataList.get(position).getstrTeam());
+        holder.txtNpm.setText(dataList.get(position).getintFormedYear());
+        Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getstrTeamBadge());
         //pakai glide karena untuk nampilkan data gambar dari URL / permission / graddle
         Glide.with(holder.itemView)
-                .load(dataList.get(position).getPath())
+                .load(dataList.get(position).getstrTeamBadge())
                 //.override(Target.SIZE_ORIGINAL)
                 .apply(new RequestOptions().override(600, 200))
                 .placeholder(R.mipmap.ic_launcher)
@@ -124,7 +124,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
                             switch (which){
                                 case DialogInterface.BUTTON_POSITIVE:
                                     //Yes button clicked
-                                    realmHelper.delete(dataList.get(posku).getId());
+                                    realmHelper.delete(dataList.get(posku).getidTeam());
                                     notifyDataSetChanged();
                                     break;
 

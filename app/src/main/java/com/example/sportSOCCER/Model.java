@@ -38,7 +38,7 @@ public class Model {
     }
 
     public void setstrCountry(String strCountry) {
-        this.strCountry=strCountry;
+        this.strCountry = strCountry;
     }
 
     public String getstrTeamBadge() {

@@ -21,15 +21,18 @@ public class DetailMovie extends AppCompatActivity {
 
 
     Bundle extras;
-    String title;
-    String date;
-    String deskripsi;
-    String path;
-    String id;
+    String TeamName;
+    String CreationYear;
+    String DescriptionEN;
+    String Badge;
+    int TeamID;
+    String Country;
 
     TextView tvjudul;
     ImageView ivposter;
     TextView tvdesc;
+    TextView tvyear;
+    TextView tvcountry;
     Button btnbookmark;
 
     @Override
@@ -37,21 +40,26 @@ public class DetailMovie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_movie);
         extras = getIntent().getExtras();
-        tvjudul = (TextView)findViewById(R.id.tvname);
+        tvjudul = (TextView)findViewById(R.id.tvteam);
         tvdesc = (TextView)findViewById(R.id.txtdeskripsi);
         ivposter = (ImageView) findViewById(R.id.ivposter);
+        tvyear = (TextView) findViewById(R.id.txtyear);
+        tvcountry = (TextView) findViewById(R.id.txtcountry);
         btnbookmark = (Button) findViewById(R.id.btnbookmark);
 
         if (extras != null) {
-            title = extras.getString("judul");
-            id = extras.getString("id");
-            date = extras.getString("date");
-            deskripsi = extras.getString("deskripsi");
-            path = extras.getString("path");
-            tvjudul.setText(title);
-            tvdesc.setText(deskripsi);
+            TeamName = extras.getString("strTeam");
+            TeamID = extras.getInt("idTeam");
+            CreationYear = extras.getString("intFormedYear");
+            DescriptionEN = extras.getString("strDescriptionEN");
+            Badge = extras.getString("strTeamBadge");
+            Country = extras.getString("strCountry");
+            tvjudul.setText(TeamName);
+            tvdesc.setText(DescriptionEN);
+            tvyear.setText(CreationYear);
+            tvcountry.setText(Country);
             Glide.with(DetailMovie.this)
-                    .load(path)
+                    .load(Badge)
                     .override(Target.SIZE_ORIGINAL)
                     .placeholder(R.mipmap.ic_launcher)
                     .into(ivposter);
@@ -68,10 +76,10 @@ public class DetailMovie extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 movieModel = new ModelMovieRealm();
-                movieModel.setDesc(deskripsi);
-                movieModel.setJudul(title);
-                movieModel.setPath(path);
-                movieModel.setReleaseDate(date);
+                movieModel.setstrDescriptionEN(DescriptionEN);
+                movieModel.setidTeam(TeamID);
+                movieModel.setstrTeamBadge(Badge);
+                movieModel.setintFormedYear(CreationYear);
 
                 realmHelper = new RealmHelper(realm);
                 realmHelper.save(movieModel);

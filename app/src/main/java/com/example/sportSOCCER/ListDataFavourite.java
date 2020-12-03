@@ -27,7 +27,7 @@ public class ListDataFavourite extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_data);
+        setContentView(R.layout.activity_list_data_favorit);
         getSupportActionBar().hide();
         recyclerView = (RecyclerView) findViewById(R.id.rvdata);
         DataArrayList = new ArrayList<>();
@@ -35,7 +35,7 @@ public class ListDataFavourite extends AppCompatActivity {
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         realm = Realm.getInstance(configuration);
         realmHelper = new RealmHelper(realm);
-        DataArrayList = realmHelper.getAllMovie();
+        DataArrayList = realmHelper.getAllTeam();
         if (DataArrayList.size() == 0){
             tvnodata.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
@@ -46,10 +46,12 @@ public class ListDataFavourite extends AppCompatActivity {
                 @Override
                 public void onClick(int position) {
                     Intent move = new Intent(getApplicationContext(), DetailFavourite.class);
-                    move.putExtra("judul",DataArrayList.get(position).getJudul());
-                    move.putExtra("path",DataArrayList.get(position).getPath());
-                    move.putExtra("date",DataArrayList.get(position).getReleaseDate());
-                    move.putExtra("deskripsi",DataArrayList.get(position).getDesc());
+                    move.putExtra("idTeam",DataArrayList.get(position).getstrTeam());
+                    move.putExtra("strTeam",DataArrayList.get(position).getstrTeam());
+                    move.putExtra("strTeamBadge",DataArrayList.get(position).getstrTeamBadge());
+                    move.putExtra("strCountry",DataArrayList.get(position).getstrCountry());
+                    move.putExtra("intFormedYear",DataArrayList.get(position).getintFormedYear());
+                    move.putExtra("strDescriptionEN",DataArrayList.get(position).getstrDescriptionEN());
                     // di putextra yang lain
                     startActivity(move);
                 }

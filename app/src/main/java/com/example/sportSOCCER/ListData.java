@@ -91,7 +91,7 @@ public class ListData extends AppCompatActivity {
                         Model modelku;
                         try {
                             Log.d("hasiljson", "onResponse: " + response.toString());
-                            JSONArray jsonArray = response.getJSONArray("results");
+                            JSONArray jsonArray = response.getJSONArray("teams");
                             Log.d("hasiljson2", "onResponse: " + jsonArray.toString());
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 modelku = new Model();
@@ -111,11 +111,11 @@ public class ListData extends AppCompatActivity {
                                     Model team = DataArrayList.get(position);
                                     Intent intent = new Intent(getApplicationContext(), DetailMovie.class);
                                     intent.putExtra("idTeam",team.idTeam);
-                                    intent.putExtra("Team",team.strTeam);
-                                    intent.putExtra("Country",team.strCountry);
-                                    intent.putExtra("FormedYear",team.intFormedYear);
-                                    intent.putExtra("DescriptionEN",team.strDescriptionEN);
-                                    intent.putExtra("TeamBadge",team.strTeamBadge);
+                                    intent.putExtra("strTeam",team.strTeam);
+                                    intent.putExtra("strCountry",team.strCountry);
+                                    intent.putExtra("intFormedYear",team.intFormedYear);
+                                    intent.putExtra("strDescriptionEN",team.strDescriptionEN);
+                                    intent.putExtra("strTeamBadge",team.strTeamBadge);
                                     startActivity(intent);
                                     Toast.makeText(ListData.this, ""+position, Toast.LENGTH_SHORT).show();
                                 }
@@ -133,6 +133,7 @@ public class ListData extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+
                             if (dialog.isShowing()) {
                                 dialog.dismiss();
                             }
@@ -149,5 +150,4 @@ public class ListData extends AppCompatActivity {
                     }
                 });
     }
-
 }

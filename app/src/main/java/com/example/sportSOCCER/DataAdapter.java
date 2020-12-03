@@ -48,7 +48,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
     @Override
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
         holder.txtNama.setText(dataList.get(position).getstrTeam());
-        holder.txtCountry.setText(dataList.get(position).getstrDescriptionEN());
+        holder.txtCountry.setText(dataList.get(position).getstrCountry());
         Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getstrTeamBadge());
         //pakai glide karena untuk nampilkan data gambar dari URL / permission / graddle
         Glide.with(holder.itemView)

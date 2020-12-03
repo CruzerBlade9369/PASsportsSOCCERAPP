@@ -29,7 +29,7 @@ public class RealmHelper {
                     }else {
                         nextId = currentIdNum.intValue() + 1;
                     }
-                    movieModel.setId(nextId);
+                    movieModel.setidTeam(nextId);
                     ModelMovieRealm model = realm.copyToRealm(movieModel);
                 }else{
                     Log.e("ppppp", "execute: Database not Exist");
@@ -39,7 +39,7 @@ public class RealmHelper {
     }
 
     // untuk memanggil semua data
-    public List<ModelMovieRealm> getAllMovie(){
+    public List<ModelMovieRealm> getAllTeam(){
         RealmResults<ModelMovieRealm> results = realm.where(ModelMovieRealm.class).findAll();
         return results;
     }
