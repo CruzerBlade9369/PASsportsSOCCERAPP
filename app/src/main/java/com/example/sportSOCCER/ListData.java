@@ -117,7 +117,6 @@ public class ListData extends AppCompatActivity {
                                     intent.putExtra("strDescriptionEN",team.strDescriptionEN);
                                     intent.putExtra("strTeamBadge",team.strTeamBadge);
                                     startActivity(intent);
-                                    Toast.makeText(ListData.this, ""+position, Toast.LENGTH_SHORT).show();
                                 }
 
                                 @Override

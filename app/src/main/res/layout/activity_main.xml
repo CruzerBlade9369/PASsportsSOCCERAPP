@@ -14,12 +14,12 @@
         android:layout_height="140dp"
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
-        android:src="@mipmap/logobaru"/>
+        android:src="@mipmap/tfa"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WELCOME PLEASE LOGIN"
+        android:text="Welcome to the TFA Database App"
         android:textSize="17dp"
         android:textColor="#000000"
         android:gravity="center"

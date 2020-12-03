@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 
 import java.util.List;
 
@@ -57,12 +58,12 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
     @Override
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
         holder.txtNama.setText(dataList.get(position).getstrTeam());
-        holder.txtNpm.setText(dataList.get(position).getintFormedYear());
+        holder.txtCountry.setText(dataList.get(position).getstrCountry());
         Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getstrTeamBadge());
         //pakai glide karena untuk nampilkan data gambar dari URL / permission / graddle
         Glide.with(holder.itemView)
                 .load(dataList.get(position).getstrTeamBadge())
-                //.override(Target.SIZE_ORIGINAL)
+                .override(Target.SIZE_ORIGINAL)
                 .apply(new RequestOptions().override(600, 200))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.ivprofile);
@@ -75,7 +76,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
     }
 
     public class DatakuViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
-        private TextView txtNama, txtNpm;
+        private TextView txtNama, txtCountry;
         CardView card;
         ImageView ivprofile;
 
@@ -85,7 +86,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
             card = (CardView) itemView.findViewById(R.id.cardku);
             ivprofile = (ImageView) itemView.findViewById(R.id.ivprofile);
             txtNama = (TextView) itemView.findViewById(R.id.tvname);
-            txtNpm = (TextView) itemView.findViewById(R.id.tvcountry);
+            txtCountry = (TextView) itemView.findViewById(R.id.tvcountry);
             itemView.setOnCreateContextMenuListener(this);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +114,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
             switch (item.getItemId()) {
                 case 1:
                     //Do stuff
-                    Toast.makeText(viewku.getContext(), ""+posku, Toast.LENGTH_SHORT).show();
+
                     break;
 
                 case 2:
@@ -136,7 +137,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(viewku.getContext());
-                    builder.setMessage("Are you sure want to delete ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Are you sure want to delete?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
                     break;
             }

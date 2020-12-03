@@ -28,7 +28,6 @@ public class ListDataFavourite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_data_favorit);
-        getSupportActionBar().hide();
         recyclerView = (RecyclerView) findViewById(R.id.rvdata);
         tvnodata = (TextView) findViewById(R.id.tvnodata);
         DataArrayList = new ArrayList<>();

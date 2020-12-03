@@ -104,7 +104,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DatakuViewHold
             switch (item.getItemId()) {
                 case 1:
                     //Do stuff
-                    Toast.makeText(viewku.getContext(), ""+posku, Toast.LENGTH_SHORT).show();
+
                     break;
 
                 case 2:

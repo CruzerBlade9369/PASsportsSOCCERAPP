@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
@@ -78,12 +79,16 @@ public class DetailMovie extends AppCompatActivity {
                 movieModel = new ModelMovieRealm();
                 movieModel.setstrTeam(strTeam);
                 movieModel.setstrDescriptionEN(strDescriptionEN);
+                movieModel.setstrCountry(strCountry);
                 movieModel.setidTeam(idTeam);
                 movieModel.setstrTeamBadge(strTeamBadge);
                 movieModel.setintFormedYear(strFormedYear);
 
                 realmHelper = new RealmHelper(realm);
                 realmHelper.save(movieModel);
+
+                Toast mytoast = Toast.makeText(DetailMovie.this, "Bookmarked!", Toast.LENGTH_SHORT);
+                mytoast.show();
 
             }
         });
