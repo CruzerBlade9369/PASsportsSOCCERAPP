@@ -21,12 +21,12 @@ public class DetailMovie extends AppCompatActivity {
 
 
     Bundle extras;
-    String TeamName;
-    String CreationYear;
-    String DescriptionEN;
-    String Badge;
-    int TeamID;
-    String Country;
+    String strTeam;
+    String strFormedYear;
+    String strDescriptionEN;
+    String strTeamBadge;
+    int idTeam;
+    String strCountry;
 
     TextView tvjudul;
     ImageView ivposter;
@@ -48,18 +48,18 @@ public class DetailMovie extends AppCompatActivity {
         btnbookmark = (Button) findViewById(R.id.btnbookmark);
 
         if (extras != null) {
-            TeamName = extras.getString("strTeam");
-            TeamID = extras.getInt("idTeam");
-            CreationYear = extras.getString("intFormedYear");
-            DescriptionEN = extras.getString("strDescriptionEN");
-            Badge = extras.getString("strTeamBadge");
-            Country = extras.getString("strCountry");
-            tvjudul.setText(TeamName);
-            tvdesc.setText(DescriptionEN);
-            tvyear.setText(CreationYear);
-            tvcountry.setText(Country);
+            strTeam = extras.getString("strTeam");
+            idTeam = extras.getInt("idTeam");
+            strFormedYear = extras.getString("intFormedYear");
+            strDescriptionEN = extras.getString("strDescriptionEN");
+            strTeamBadge = extras.getString("strTeamBadge");
+            strCountry = extras.getString("strCountry");
+            tvjudul.setText(strTeam);
+            tvdesc.setText(strDescriptionEN);
+            tvyear.setText(strFormedYear);
+            tvcountry.setText(strCountry);
             Glide.with(DetailMovie.this)
-                    .load(Badge)
+                    .load(strTeamBadge)
                     .override(Target.SIZE_ORIGINAL)
                     .placeholder(R.mipmap.ic_launcher)
                     .into(ivposter);
@@ -76,10 +76,11 @@ public class DetailMovie extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 movieModel = new ModelMovieRealm();
-                movieModel.setstrDescriptionEN(DescriptionEN);
-                movieModel.setidTeam(TeamID);
-                movieModel.setstrTeamBadge(Badge);
-                movieModel.setintFormedYear(CreationYear);
+                movieModel.setstrTeam(strTeam);
+                movieModel.setstrDescriptionEN(strDescriptionEN);
+                movieModel.setidTeam(idTeam);
+                movieModel.setstrTeamBadge(strTeamBadge);
+                movieModel.setintFormedYear(strFormedYear);
 
                 realmHelper = new RealmHelper(realm);
                 realmHelper.save(movieModel);

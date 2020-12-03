@@ -30,6 +30,7 @@ public class ListDataFavourite extends AppCompatActivity {
         setContentView(R.layout.activity_list_data_favorit);
         getSupportActionBar().hide();
         recyclerView = (RecyclerView) findViewById(R.id.rvdata);
+        tvnodata = (TextView) findViewById(R.id.tvnodata);
         DataArrayList = new ArrayList<>();
         // Setup Realm
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();

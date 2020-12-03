@@ -22,7 +22,7 @@ public class RealmHelper {
             public void execute(Realm realm) {
                 if (realm != null){
                     Log.e("Created", "Database was created");
-                    Number currentIdNum = realm.where(ModelMovieRealm.class).max("id");
+                    Number currentIdNum = realm.where(ModelMovieRealm.class).max("idTeam");
                     int nextId;
                     if (currentIdNum == null){
                         nextId = 1;
