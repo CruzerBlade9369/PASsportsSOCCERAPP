@@ -37,11 +37,16 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:text="Lihat Product"
+                    android:text="See List"
                     android:textColor="#000000"
                     tools:targetApi="lollipop" />
 
             </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/soccer2"/>
 
         </LinearLayout>
 
@@ -77,11 +82,16 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:text="Lihat Product Favouriteku"
+                    android:text="My Bookmarks"
                     android:textColor="#000000"
                     tools:targetApi="lollipop" />
 
             </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/soccer"/>
 
         </LinearLayout>
 
